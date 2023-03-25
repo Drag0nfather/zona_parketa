@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {% load static %}
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Зона паркета</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div class="hero_area">
+    {% include 'header.html' %}
+  </div>
+<style>
+   .contacts{
+    padding: 20px;
+    margin: 0 auto; /* Добавляем автоматические отступы слева и справа */
+    max-width: 600px; /* Ограничиваем максимальную ширину блока, чтобы контакты не занимали всю ширину экрана */
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 5px;
+  }
+</style>
+<section class="contacts">
+  <h2>Контакты</h2>
+  <ul>
+    <li>Телефон:  +7-903-798-63-85</li>
+    <li>Email: Parket-33@mail.ru</li>
+    <li>Адрес: г. Москва, Мукомольный п-д, д. 2</li>
+  </ul>
+</section>
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container">
+    <div class="heading_container d-flex justify-content-center align-items-center">
+        <h2>
+          Свяжитесь с нами
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <form method="POST">
+              {% csrf_token %}
+            <div>
+              <input type="text" placeholder="Имя" name="name" required="required"/>
+            </div>
+            <div>
+              <input type="text" placeholder="Телефон" name="phone" required="required"/>
+            </div>
+            <div>
+              <input type="text" class="message-box" placeholder="Можете кратко рассказать, что хотите)" name="message" />
+            </div>
+            <div class="d-flex justify-content-center">
+              <button>
+                Отправить
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- end contact section -->
+
+
+  {% include 'footer.html' %}
+
+
+  {% include 'scripts.html' %}
+
+
+</body>
+
+</html>

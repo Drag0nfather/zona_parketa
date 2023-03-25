@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Зона паркета</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<style>
+.text-container {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+}
+
+.text-white {
+color: white;
+}
+
+.smaller-text {
+font-size: 20px;
+}
+
+    @media only screen and (max-width: 768px) {
+        /* adjust the size of the image for screens smaller than 768px */
+        .first-slide {
+            width: 100%; /* make the image span the full width of the container */
+            height: auto; /* preserve the aspect ratio of the image */
+            max-width: 500px; /* limit the maximum width of the image */
+        }
+    }
+</style>
+<body>
+  <div class="hero_area">
+      {% include 'header.html' %}
+  </div>
+
+    <!-- slider section -->
+<div class="container-fluid p-0 position-relative">
+  <img src="../static/images/parket-wallpaper.png" class="img-fluid" alt="Мое изображение">
+  <div class="text-container position-absolute top-50 start-50 translate-middle text-center">
+    <h1 class="text-white">Зона паркета</h1>
+    <p class="text-white smaller-text">Все виды паркетных работ</p>
+  </div>
+</div>
+    <!-- end slider section -->
+
+  <!-- about section -->
+  <section class="about_section layout_padding-bottom">
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-lg-5 col-md-6 order-1 order-md-1">
+          <div class="detail-box">
+            <h2>
+              Наш профиль- паркетные работы
+            </h2>
+            <p>
+            Наша компания существует на рынке более 20-ти лет. Мы осуществляем весь комплекс паркетных работ - укладку паркета, паркетной доски, укладку массивной доски, циклевку паркета, ремонт пола. Вы также можете заказать в нашей компании ремонт и восстановление паркета, мы осуществим это качественно, в кратчайшие сроки, и ваш старый пол будет выглядеть как новый! В своей работе мы используем самое современное европейское оборудование и материалы, наши мастера- это специалисты высочайшего класса, поэтому ваши полы будут оставаться красивыми и гладкими долгие годы!            </p>
+            <a href="/about">
+              Подробнее
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-7 col-md-6 order-1 order-md-2">
+          <div class="img-box">
+            <img src="{% static 'images/img_1.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+
+  <!-- professional section -->
+
+  <section class="about_section layout_padding-bottom">
+    <div class="container mt-5">
+      <div class="row">
+          <div class="col-lg-7 col-md-6 order-2 order-md-1">
+          <div class="img-box">
+            <img src="{% static 'images/parket_equipement.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-6 order-1 order-md-2">
+          <div class="detail-box">
+            <h2>
+              Наше оборудование
+            </h2>
+            <p>
+
+            "Зона Паркета" производит работы на профессиональном оборудовании фирмы Леглер (Германия). Это высоконадежные машины, которые обеспечивают быструю и высококачественную шлифовку деревянных полов. Все они оснащены пылесборниками и работают от обычной розетки, от сети 220Вт.
+            </p>
+            <a href="/equipment">
+              Подробнее
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- end professional section -->
+
+<style>.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23YOUR_COLOR_HERE' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L3.5 4.5 6.75 1.25 5.25 0z'/%3e%3c/svg%3e");
+}
+
+.carousel-control-next-icon {
+  transform: rotate(180deg);
+}
+.carousel-item img {
+  max-width: 30%;
+}
+</style>
+
+<section class="about_section">
+  <div class="detail-box text-center mb-3">
+    <h2>
+      Наши работы
+    </h2>
+  </div>
+  <div id="our-works-carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      {% for photo in photos %}
+        <li data-target="#our-works-carousel" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+      {% endfor %}
+    </ol>
+    <div class="carousel-inner">
+      {% for photo in photos %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img src="{{ photo.photo.url }}" class="d-block mx-auto" alt="{{ photo.name }}">
+        </div>
+      {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#our-works-carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#our-works-carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</section>
+  <!-- client section -->
+
+  <section class="client_section mt-5">
+    <div class="container">
+      <div class="heading_container heading_center mb-0">
+        <h2>
+          Что о нас говорят клиенты?
+        </h2>
+      </div>
+      <div class="carousel-wrap layout_padding2-top ">
+        <div class="owl-carousel">
+          <div class="item">
+            <div class="box">
+              <div class="client_id">
+                <div class="img-box">
+                  <img src="{% static 'images/client-1.jpg' %}" alt="">
+                </div>
+                <div class="client_detail">
+                  <div class="client_info">
+                    <h6>
+                      Вася пупкин
+                    </h6>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="client_text">
+                <p>
+                    Красавцы вообще большие молодцы
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="client_id">
+                <div class="img-box">
+                  <img src="{% static 'images/client-2.jpg' %}" alt="">
+                </div>
+                <div class="client_detail">
+                  <div class="client_info">
+                    <h6>
+                      Второй чел
+                    </h6>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="client_text">
+                <p>
+                    А мне не понравилось
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="client_id">
+                <div class="img-box">
+                  <img src="{% static 'images/client-1.jpg' %}" alt="">
+                </div>
+                <div class="client_detail">
+                  <div class="client_info">
+                    <h6>
+                      Jorch morik
+                    </h6>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="client_text">
+                <p>
+                  chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="client_id">
+                <div class="img-box">
+                  <img src="{% static 'images/client-2.jpg' %}" alt="">
+                </div>
+                <div class="client_detail">
+                  <div class="client_info">
+                    <h6>
+                      Jorch morik
+                    </h6>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="client_text">
+                <p>
+                  chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end client section -->
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container">
+    <div class="heading_container d-flex justify-content-center align-items-center">
+        <h2>
+          Свяжитесь с нами
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <form method="POST">
+              {% csrf_token %}
+            <div>
+              <input type="text" placeholder="Имя" name="name" required="required"/>
+            </div>
+            <div>
+              <input type="text" placeholder="Телефон" name="phone" required="required"/>
+            </div>
+            <div>
+              <input type="text" class="message-box" placeholder="Можете кратко рассказать, что хотите)" name="message" />
+            </div>
+            <div class="d-flex justify-content-center">
+              <button>
+                Отправить
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end contact section -->
+
+  {% include 'footer.html' %}
+
+  {% include 'scripts.html' %}
+
+
+</body>
+
+</html>

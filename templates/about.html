@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {% load static %}
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Зона паркета</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div class="hero_area">
+    {% include 'header.html' %}
+  </div>
+
+  <!-- about section -->
+
+  <section class="about_section m-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 col-md-6 mx-auto">
+          <div class="detail-box">
+            <h2 style="margin-bottom: 4%">
+              Наш профиль - паркетные работы
+            </h2>
+            <p>
+Наша компания суцествует на рынке уже свыше 20-ти лет. Мы осуществляем весь комплекс работ, связанных с деревянными полами, начиная от выбора исходных материалов и заканчивая уходом за полом. Мы можем предложить Вам укладку паркета из любого вида древесины и любого рисунка,  от традиционной "ёлочки" до художественного рисунка. Также в сферу нашей деятельности входит укладка массивной и паркетной доски, укладка ламинированного паркета (ламината), шлифовка полов, покрытие маслом и воском. Высокая квалификация наших сотрудников и длительное время на рынке- все это позволяет нам предложить Вам высокое качество исполнения работ. <br>
+
+Мы - одна из тех компаний, которая всегда соответствует самым жестким требованиям качества. Наша работа не причинит дискомфорта вашему дому- всё наше циклевочное и шлифовальное оборудование оснащено пылесборниками, а используемая химия практически без запаха. Мы используем только химию всемирно известной шведской фирмы Вона, и специалисты нашей компании знают о ней всё не по наслышке- мы проходили стажировку на заводах Вона в шведском городе Мальмо. <br>
+
+Выполняем выезды по Москве, Московской области, а при необходимости - в любой регион Российской Федерации. Также легко осуществим укладку паркета по индивидуальному проекту! <br>
+
+Специалисты нашей компании подробно проконсультируют вас относительно выбора древесины для пола, помогут с подбором рисунка паркета, а технолог на месте определит виды работ, количество материала и составит предварительную смету.Мы поможем вам с покупкой материалов и подскажем, как сэкономить на этом- в зависимости от приобретаемого объема сможем предложить различные скидки в крупных паркетных фирмах. Это касается как паркета и массивной доски, так и лаков и клеев <br>
+
+С ценами на предлагаемые работы Вы можете ознакомиться в разделе "Услуги и цены"</p>
+            <a href="/service">
+              Услуги и цены
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  {% include 'footer.html' %}
+
+  {% include 'scripts.html' %}
+
+
+</body>
+
+</html>

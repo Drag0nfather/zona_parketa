@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {% load static %}
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Зона паркета</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div class="hero_area">
+    {% include 'header.html' %}
+  </div>
+  {% include 'parquet_work.html' %}
+<!--  &lt;!&ndash; service section &ndash;&gt;-->
+
+<!--  <section class="service_section layout_padding">-->
+<!--    <div class="container ">-->
+<!--      <div class="heading_container heading_center">-->
+<!--        <h2> Our Services </h2>-->
+<!--      </div>-->
+<!--      <div class="row">-->
+<!--        <div class="col-sm-6 col-md-4 mx-auto">-->
+<!--          <div class="box ">-->
+<!--            <div class="img-box">-->
+<!--              <img src="{% static 'images/s1.png' %}" alt="" />-->
+<!--            </div>-->
+<!--            <div class="detail-box">-->
+<!--              <h5>-->
+<!--                Maintenance-->
+<!--              </h5>-->
+<!--              <p>-->
+<!--                when looking at its layout. The point of using Lorem Ipsum is-->
+<!--                that it has a more-or-less normal-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-sm-6 col-md-4 mx-auto">-->
+<!--          <div class="box ">-->
+<!--            <div class="img-box">-->
+<!--              <img src="{% static 'images/s2.png' %}" alt="" />-->
+<!--            </div>-->
+<!--            <div class="detail-box">-->
+<!--              <h5>-->
+<!--                Electrical-->
+<!--              </h5>-->
+<!--              <p>-->
+<!--                when looking at its layout. The point of using Lorem Ipsum is-->
+<!--                that it has a more-or-less normal-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-sm-6 col-md-4 mx-auto">-->
+<!--          <div class="box ">-->
+<!--            <div class="img-box">-->
+<!--              <img src="{% static 'images/s3.png' %}" alt="" />-->
+<!--            </div>-->
+<!--            <div class="detail-box">-->
+<!--              <h5>-->
+<!--                Plumbing-->
+<!--              </h5>-->
+<!--              <p>-->
+<!--                when looking at its layout. The point of using Lorem Ipsum is-->
+<!--                that it has a more-or-less normal-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="btn-box">-->
+<!--        <a href="">-->
+<!--          View More-->
+<!--        </a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--  &lt;!&ndash; end service section &ndash;&gt;-->
+
+  {% include 'footer.html' %}
+
+  {% include 'scripts.html' %}
+
+
+</body>
+
+</html>
