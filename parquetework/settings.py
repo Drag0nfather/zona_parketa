@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-676)=^_3=1qvqu4d+xkafh$(zn%f1k#9rha+v!=34_%2s+$_ai'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -125,5 +125,5 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-MEDIA_URL = '/images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
+MEDIA_URL = '/static/images/from_admin/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'images', 'from_admin')
