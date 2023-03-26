@@ -1,4 +1,7 @@
 from django.shortcuts import render
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from telegram_stuff.telegram import send_messsage_to_telegram_chat
 from .models import ParquetWork, ParquetCategory, ParquetPhoto
