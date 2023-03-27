@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-676)=^_3=1qvqu4d+xkafh$(zn%f1k#9rha+v!=34_%2s+$_ai
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['zona-parketa.ru', 'www.zona-parketa.ru']
 
 
 # Application definition
