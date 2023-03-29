@@ -6,6 +6,10 @@ class ParquetCategory(models.Model):
     description = models.TextField()
     image = models.ImageField()
 
+    class Meta:
+        verbose_name = 'Категория работ'
+        verbose_name_plural = 'Категории работ'
+
     def __str__(self):
         return self.category_name
 
@@ -18,6 +22,10 @@ class ParquetWork(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = 'Работа'
+        verbose_name_plural = 'Работы'
+
     def __str__(self):
         return self.name
 
@@ -25,6 +33,10 @@ class ParquetWork(models.Model):
 class ParquetPhoto(models.Model):
     name = models.CharField(blank=True, max_length=100)
     photo = models.ImageField()
+
+    class Meta:
+        verbose_name = 'Фотография'
+        verbose_name_plural = 'Фотографии'
 
     def __str__(self):
         return self.name or str(self.id)
