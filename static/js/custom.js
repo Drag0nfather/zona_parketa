@@ -40,3 +40,9 @@ function myMap() {
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
+
+var navbarToggler = document.querySelector('.navbar-toggler');
+
+navbarToggler.addEventListener('click', function() {
+  navbarToggler.classList.toggle('active');
+});
