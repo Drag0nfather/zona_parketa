@@ -28,21 +28,21 @@
 </head>
 
 <style>
-.text-container {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-text-align: center;
-}
+    .text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    }
 
-.text-white {
-color: white;
-}
+    .text-white {
+    color: white;
+    }
 
-.smaller-text {
-font-size: 20px;
-}
+    .smaller-text {
+    font-size: 20px;
+    }
 
     @media only screen and (max-width: 768px) {
         /* adjust the size of the image for screens smaller than 768px */
@@ -50,6 +50,12 @@ font-size: 20px;
             width: 100%; /* make the image span the full width of the container */
             height: auto; /* preserve the aspect ratio of the image */
             max-width: 500px; /* limit the maximum width of the image */
+        }
+        .text-white {
+            font-size: 26px;
+        }
+        .smaller-text {
+            font-size: 11px; /* новый размер шрифта для мобильных устройств */
         }
     }
 </style>
