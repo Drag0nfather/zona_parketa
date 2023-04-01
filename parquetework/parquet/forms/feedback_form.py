@@ -11,4 +11,4 @@ class FeedBackForm(forms.Form):
         'id': 'phone-input',
         'oninput': 'formatPhone(event)',
     }))
-    description = forms.CharField(label=_('Можете кратко рассказать, что хотите)'), max_length=150, required=False)
+    description = forms.CharField(label=_('Можете кратко рассказать, что хотите)'), max_length=1000, required=False)
