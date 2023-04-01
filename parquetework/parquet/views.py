@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 import os
 import sys
 
+from telebot.apihelper import ApiTelegramException
+
 from .forms.feedback_form import FeedBackForm
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
@@ -14,9 +16,11 @@ def handle_feedback(request):
     name = request.POST.get('name')
     phone = request.POST.get('phone_number')
     message = request.POST.get('description')
-    send_messsage_to_telegram_chat(278583648, name, phone, message)
-    send_messsage_to_telegram_chat(5414253735, name, phone, message)  # Ромин
-
+    try:
+        send_messsage_to_telegram_chat(278583648, name, phone, message)
+        send_messsage_to_telegram_chat(5414253735, name, phone, message)  # Ромин
+    except ApiTelegramException:
+        pass
 
 def parquet_list(request):
     parquets = ParquetWork.objects.all()
