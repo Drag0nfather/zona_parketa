@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-676)=^_3=1qvqu4d+xkafh$(zn%f1k#9rha+v!=34_%2s+$_ai'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['zona-parketa.ru', 'www.zona-parketa.ru']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'parquet',
+    "phonenumber_field",
 ]
 
 MIDDLEWARE = [
@@ -125,5 +126,5 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-MEDIA_URL = '/static/images/from_admin/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'images', 'from_admin')
+MEDIA_URL = '/media/images/from_admin/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media', 'images', 'from_admin')

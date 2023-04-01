@@ -33,11 +33,12 @@
   <div class="hero_area">
     {% include 'header.html' %}
   </div>
+  {% include 'pop-up-message.html' %}
 <style>
    .contacts{
     padding: 20px;
-    margin: 0 auto; /* Добавляем автоматические отступы слева и справа */
-    max-width: 600px; /* Ограничиваем максимальную ширину блока, чтобы контакты не занимали всю ширину экрана */
+    margin: 0 auto;
+    max-width: 600px;
   }
 
   h2 {
@@ -65,41 +66,7 @@
     <li>Адрес: г. Москва, Мукомольный п-д, д. 2</li>
   </ul>
 </section>
-  <!-- contact section -->
-
-  <section class="contact_section layout_padding">
-    <div class="container">
-    <div class="heading_container d-flex justify-content-center align-items-center">
-        <h2>
-          Свяжитесь с нами
-        </h2>
-      </div>
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <form method="POST">
-              {% csrf_token %}
-            <div>
-              <input type="text" placeholder="Имя" name="name" required="required"/>
-            </div>
-            <div>
-              <input type="text" placeholder="Телефон" name="phone" required="required"/>
-            </div>
-            <div>
-              <input type="text" class="message-box" placeholder="Можете кратко рассказать, что хотите)" name="message" />
-            </div>
-            <div class="d-flex justify-content-center">
-              <button>
-                Отправить
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- end contact section -->
+  {% include 'feedbackform.html' %}
 
 
   {% include 'footer.html' %}

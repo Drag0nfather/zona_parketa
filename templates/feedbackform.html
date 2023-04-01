@@ -1,0 +1,32 @@
+{% block content %}
+<section class="contact_section layout_padding">
+    <div class="container">
+    <div class="heading_container d-flex justify-content-center align-items-center">
+        <h2>
+          Свяжитесь с нами
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <form method="POST" id="contact-form">
+              {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-flex justify-content-center">
+              <button type="submit">
+                Отправить
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% endblock %}

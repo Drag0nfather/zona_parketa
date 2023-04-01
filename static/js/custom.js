@@ -46,3 +46,65 @@ var navbarToggler = document.querySelector('.navbar-toggler');
 navbarToggler.addEventListener('click', function() {
   navbarToggler.classList.toggle('active');
 });
+
+
+
+function formatPhone(event) {
+  const phoneInput = event.target;
+  let phoneNumber = phoneInput.value.replace(/[^\d]/g, '');
+
+  // Удаляем префикс "+7("
+  if (phoneNumber.startsWith('7')) {
+    phoneNumber = phoneNumber.slice(1);
+  }
+
+  // Ограничиваем длину номера телефона
+  phoneNumber = phoneNumber.slice(0, 10);
+
+  let formattedPhoneNumber = '';
+
+  if (phoneNumber.length > 0) {
+    formattedPhoneNumber = '+7(';
+
+    if (phoneNumber[0] === '8') {
+      if (phoneNumber.length > 1) {
+        formattedPhoneNumber += phoneNumber.slice(1, 4);
+        phoneNumber = phoneNumber.slice(4);
+      }
+      if (phoneNumber.length > 2) {
+        formattedPhoneNumber += ') ' + phoneNumber.slice(0, 3);
+        phoneNumber = phoneNumber.slice(3);
+      }
+      if (phoneNumber.length > 1) {
+        formattedPhoneNumber += phoneNumber[0] + '-' + phoneNumber.slice(1);
+      } else {
+        formattedPhoneNumber += phoneNumber;
+      }
+    } else {
+      if (phoneNumber.length > 3) {
+        formattedPhoneNumber += phoneNumber.slice(0, 3);
+        phoneNumber = phoneNumber.slice(3);
+      }
+      if (phoneNumber.length > 3) {
+        formattedPhoneNumber += ') ' + phoneNumber.slice(0, 3);
+        phoneNumber = phoneNumber.slice(3);
+      }
+      if (phoneNumber.length > 2) {
+        formattedPhoneNumber += '-' + phoneNumber.slice(0, 2);
+        phoneNumber = phoneNumber.slice(2);
+      }
+      if (phoneNumber.length > 0) {
+        formattedPhoneNumber += '-' + phoneNumber;
+      }
+    }
+
+    // Удаляем тире после открывающей скобки
+    if (formattedPhoneNumber.startsWith('+7(-')) {
+      formattedPhoneNumber = '+7(' + formattedPhoneNumber.slice(4);
+    }
+
+    phoneInput.value = formattedPhoneNumber;
+  } else {
+    phoneInput.value = '';
+  }
+}

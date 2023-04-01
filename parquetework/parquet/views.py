@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import os
 import sys
+
+from .forms.feedback_form import FeedBackForm
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from telegram_stuff.telegram import send_messsage_to_telegram_chat
@@ -22,11 +25,21 @@ def parquet_list(request):
 
 def index(request):
     if request.method == 'POST':
-        handle_feedback(request)
-        photos = ParquetPhoto.objects.all()[:4]
-        return render(request, 'index.html', {'photos': photos})
+        form = FeedBackForm(request.POST)
+        if form.is_valid():
+            handle_feedback(request)
+            message = 'Спасибо, что заинтересовались нами! Мы свяжемся с Вами в ближайшее время!'
+            photos = ParquetPhoto.objects.all()[:4]
+            form = FeedBackForm()
+            return render(request, 'index.html', {'photos': photos, 'form': form, 'message': message})
+        else:
+            message = 'Проверьте правильность введенного телефона'
+            photos = ParquetPhoto.objects.all()[:4]
+            form = FeedBackForm()
+            return render(request, 'index.html', {'photos': photos, 'form': form, 'message': message})
     photos = ParquetPhoto.objects.all()[:4]
-    return render(request, 'index.html', {'photos': photos})
+    form = FeedBackForm()
+    return render(request, 'index.html', {'photos': photos, 'form': form})
 
 
 def about(request):
@@ -35,9 +48,18 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
-        handle_feedback(request)
-        return render(request, 'contact.html')
-    return render(request, 'contact.html')
+        form = FeedBackForm(request.POST)
+        if form.is_valid():
+            handle_feedback(request)
+            message = 'Спасибо, что заинтересовались нами! Мы свяжемся с Вами в ближайшее время!'
+            form = FeedBackForm()
+            return render(request, 'contact.html', {'form': form, 'message': message})
+        else:
+            message = 'Проверьте правильность введенного телефона'
+            form = FeedBackForm()
+            return render(request, 'contact.html', {'form': form, 'message': message})
+    form = FeedBackForm()
+    return render(request, 'contact.html', {'form': form})
 
 
 def service(request):
