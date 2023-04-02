@@ -35,12 +35,6 @@
   </div>
   {% include 'pop-up-message.html' %}
 <style>
-   .contacts{
-    padding: 20px;
-    margin: 0 auto;
-    max-width: 600px;
-  }
-
   h2 {
     font-size: 24px;
     margin-bottom: 10px;
@@ -58,14 +52,21 @@
     margin-bottom: 5px;
   }
 </style>
-<section class="contacts">
-  <h2>Контакты</h2>
-  <ul>
-    <li>Телефон:  +7-903-798-63-85</li>
-    <li>Email: Parket-33@mail.ru</li>
-    <li>Адрес: г. Москва, Мукомольный п-д, д. 2</li>
-  </ul>
-</section>
+  <section class="contact_section mt-5">
+    <div class="heading_container d-flex justify-content-center align-items-center">
+    <h2>Контакты</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-0 mx-auto">
+              <ul>
+                <li>Телефон:  +7-903-798-63-85</li>
+                <li>Email: Parket-33@mail.ru</li>
+                <li>Адрес: г. Москва, Мукомольный п-д, д. 2</li>
+              </ul>
+        </div>
+      </div>
+  </section>
+
   {% include 'feedbackform.html' %}
 
 
