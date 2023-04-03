@@ -2,92 +2,99 @@
 <html>
 
 <head>
-  {% load static %}
-  <!-- Basic -->
-  <meta charset="utf-8" />
+    {% load static %}
+    <!-- Basic -->
+    <meta charset="utf-8"/>
     <meta http-equiv="Content-Language" content="ru">
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <!-- Site Metas -->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
 
-  <title>Зона паркета</title>
+    <title>Зона паркета</title>
 
-  <!-- slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
-  <!-- font awesome style -->
-  <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" />
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+    <!-- font awesome style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}"/>
 
-  <!-- Custom styles for this template -->
-  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
-<style>
-    @media (min-width: 992px) {
-  .img-box {
-    margin-left: 30%;
-  }
-}
-</style>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+    <!-- responsive style -->
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet"/>
+    <style>
+        @media (min-width: 992px) {
+            .img-box {
+                margin-left: 30%;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <div class="hero_area">
+<div class="hero_area">
     {% include 'header.html' %}
-  </div>
+</div>
 
 
-  <!-- about section -->
+<!-- about section -->
 
 <section class="about_section py-5 mt-0">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-5 col-md-6 order-1 order-md-1">
-        <div class="detail-box">
-          <h2>
-            HUMMEL
-          </h2>
-          <p>
-            Профессиональная шлифовальная машина ленточного типа, предназначена для предварительной обработки паркетных и дощатых полов, очистки их от загразнений, а также для снятия слоя краски или лака при реставрации старых полов. Конструкция машины обеспечивает прекрасное качество обработки поверхности и высокую производительность. Машина оснащена пылесборником.
-          </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-6 order-1 order-md-1">
+                <div class="detail-box">
+                    <h2>
+                        HUMMEL
+                    </h2>
+                    <p>
+                        Профессиональная шлифовальная машина ленточного типа, предназначена для предварительной
+                        обработки паркетных и дощатых полов, очистки их от загразнений, а также для снятия слоя краски
+                        или лака при реставрации старых полов. Конструкция машины обеспечивает прекрасное качество
+                        обработки поверхности и высокую производительность. Машина оснащена пылесборником.
+                    </p>
+                </div>
+                <div class="mb-0"></div>
+            </div>
+            <div class="col-lg-7 col-md-6 order-1 order-md-2">
+                <div class="img-box">
+                    <img src="{% static 'images/equipment/hummel.png' %}" alt="" style="width: 80%">
+                </div>
+            </div>
         </div>
-        <div class="mb-0"></div> <!-- Добавляем пустой элемент без отступов -->
-      </div>
-      <div class="col-lg-7 col-md-6 order-1 order-md-2">
-        <div class="img-box">
-          <img src="{% static 'images/equipment/hummel.png' %}" alt="" style="width: 80%">
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <section class="about_section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-7 col-md-6 order-1 order-md-2">
-        <div class="detail-box">
-          <h2>
-            TRIO
-          </h2>
-          <p>
-            Универсальная плоскошлифовальная машина применяется для тонкой финишной шлифовки деревянных напольных покрытий, которые были предварительно выровнены шлифовальной машиной барабанного или ленточного типа, а также для промежуточной шлифовки лакового покрытия и обработки поверхностей, покрытых  маслом. Машина оснащена пылесборником.
-          </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 order-1 order-md-2">
+                <div class="detail-box">
+                    <h2>
+                        TRIO
+                    </h2>
+                    <p>
+                        Универсальная плоскошлифовальная машина применяется для тонкой финишной шлифовки деревянных
+                        напольных покрытий, которые были предварительно выровнены шлифовальной машиной барабанного или
+                        ленточного типа, а также для промежуточной шлифовки лакового покрытия и обработки поверхностей,
+                        покрытых маслом. Машина оснащена пылесборником.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 order-2 order-md-1">
+                <div class="img-box">
+                    <img src="{% static 'images/equipment/trio.png' %}" alt="" style="width: 50%">
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-lg-5 col-md-6 order-2 order-md-1">
-        <div class="img-box">
-          <img src="{% static 'images/equipment/trio.png' %}" alt="" style="width: 50%">
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <section class="about_section py-0 mt-2">
@@ -99,7 +106,12 @@
                         ELAN
                     </h2>
                     <p>
-                        Дисковая шлифовальная машина. Предназначена для обработки деревянных поверхностей пола вдоль стен, углов, под радиаторами систем отопления, ступеней лестниц и других труднодоступных мест. Машина позволяет быстро и качественно обработать участки поверхности, недоступные другим типам машин. Малый вес и маневренность машины в сочетании с известной надежностью шлифовальной техники ЛЕГЛЕР являются неоспоримыми преимуществами данной машины перед другими аналогами. Имеет пылесборник.
+                        Дисковая шлифовальная машина. Предназначена для обработки деревянных поверхностей пола вдоль
+                        стен, углов, под радиаторами систем отопления, ступеней лестниц и других труднодоступных мест.
+                        Машина позволяет быстро и качественно обработать участки поверхности, недоступные другим типам
+                        машин. Малый вес и маневренность машины в сочетании с известной надежностью шлифовальной техники
+                        ЛЕГЛЕР являются неоспоримыми преимуществами данной машины перед другими аналогами. Имеет
+                        пылесборник.
                     </p>
                 </div>
             </div>
@@ -121,53 +133,66 @@
                         COLUMBUS
                     </h2>
                     <p>
-                        Однодисковая машинка предназначена для тонкой шлифовки поверхности абразивными двусторонними дисками, межслойной шлифовки поверхности, покрытой лаком, с целью удаления "ворса" и пузырьков воздуха, нанесения масел и специальных защитных средств по уходу за напольным покрытием.
+                        Однодисковая машинка предназначена для тонкой шлифовки поверхности абразивными двусторонними
+                        дисками, межслойной шлифовки поверхности, покрытой лаком, с целью удаления "ворса" и пузырьков
+                        воздуха, нанесения масел и специальных защитных средств по уходу за напольным покрытием.
                     </p>
                 </div>
             </div>
-          <div class="col-lg-5 col-md-6 order-2 order-md-1">
-              <div class="img-box">
-                <img src="{% static 'images/equipment/columbus.png' %}" alt="" style="width: 60%">
-              </div>
+            <div class="col-lg-5 col-md-6 order-2 order-md-1">
+                <div class="img-box">
+                    <img src="{% static 'images/equipment/columbus.png' %}" alt="" style="width: 60%">
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 
-  <section class="about_section mb-5">
+<section class="about_section mb-5">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-9 col-md-6 mx-auto">
-          <div class="detail-box">
-              <h2>Гарантия качества</h2>
-            <p>Оборудование для паркетных работ проходит обязательные проверки и сертификации, что гарантирует его соответствие стандартам качества и безопасности. Использование качественного оборудования позволяет нам достигать высоких результатов в работе. Оно снижает время, затрачиваемое на укладку, а также обеспечивает более точную и эффективную работу. <br> </p>
-              <h2>Долгий срок службы</h2>
+        <div class="row">
+            <div class="col-lg-9 col-md-6 mx-auto">
+                <div class="detail-box">
+                    <h2>Гарантия качества</h2>
+                    <p>Оборудование для паркетных работ проходит обязательные проверки и сертификации, что гарантирует
+                        его соответствие стандартам качества и безопасности. Использование качественного оборудования
+                        позволяет нам достигать высоких результатов в работе. Оно снижает время, затрачиваемое на
+                        укладку, а также обеспечивает более точную и эффективную работу. <br></p>
+                    <h2>Долгий срок службы</h2>
 
-<p>Использование современного оборудования для укладки паркета позволяет добиться более точной и равномерной укладки, что в свою очередь ведет к увеличению срока службы пола. Благодаря этому, наш клиент получит паркетный пол, который прослужит ему много лет и будет радовать своей красотой и надежностью.<br></p>
-              <h2>Безопасность</h2>
+                    <p>Использование современного оборудования для укладки паркета позволяет добиться более точной и
+                        равномерной укладки, что в свою очередь ведет к увеличению срока службы пола. Благодаря этому,
+                        наш клиент получит паркетный пол, который прослужит ему много лет и будет радовать своей
+                        красотой и надежностью.<br></p>
+                    <h2>Безопасность</h2>
 
-<p>Применение профессионального оборудования для укладки паркета повышает безопасность на рабочем месте и снижает риск получения травм и других производственных проблем. Благодаря этому мы можем работать более продуктивно и эффективно, не рискуя своим здоровьем и безопасностью.<br></p>
-<h2>Мы</h2>
-<p>Использование профессионального оборудования для укладки паркета позволяет достичь высокого качества работы, повысить продуктивность и снизить риски производственных проблем. Это помогло нам стать лучшим в своей области и обеспечило удовлетворенность ваших клиентов.<br>
-                С примерами наших работ, сделанных данным оборудованием, Вы можете ознакомиться на странице фотогалереи. Также Вы можете ознакомиться с предлагаемыми услугами на странице "Услуги и цены"
-            </p>
-            <a href="/photos" style="margin-right: 10px">
-              Фотогалерея
-            </a>
-            <a href="/service">
-              Услуги и цены
-            </a>
-          </div>
+                    <p>Применение профессионального оборудования для укладки паркета повышает безопасность на рабочем
+                        месте и снижает риск получения травм и других производственных проблем. Благодаря этому мы можем
+                        работать более продуктивно и эффективно, не рискуя своим здоровьем и безопасностью.<br></p>
+                    <h2>Мы</h2>
+                    <p>Использование профессионального оборудования для укладки паркета позволяет достичь высокого
+                        качества работы, повысить продуктивность и снизить риски производственных проблем. Это помогло
+                        нам стать лучшим в своей области и обеспечило удовлетворенность ваших клиентов.<br>
+                        С примерами наших работ, сделанных данным оборудованием, Вы можете ознакомиться на странице
+                        фотогалереи. Также Вы можете ознакомиться с предлагаемыми услугами на странице "Услуги и цены"
+                    </p>
+                    <a href="/photos" style="margin-right: 10px">
+                        Фотогалерея
+                    </a>
+                    <a href="/service">
+                        Услуги и цены
+                    </a>
+                </div>
+            </div>
+
         </div>
-
-      </div>
     </div>
-  </section>
+</section>
 
 
-  {% include 'footer.html' %}
+{% include 'footer.html' %}
 
-  {% include 'scripts.html' %}
+{% include 'scripts.html' %}
 
 
 </body>
