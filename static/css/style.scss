@@ -643,26 +643,32 @@ a:focus {
 
 .contact_section {
 
-  input {
-    width: 100%;
-    border: none;
-    height: 50px;
-    margin-bottom: 25px;
-    padding-left: 25px;
-    background-color: #ffffff;
-    outline: none;
-    color: #000000;
-    box-shadow: 0 0 7px 0 rgba($color: #000000, $alpha: .2);
+input {
+  width: 100%;
+  border: none;
+  height: 50px;
+  margin-bottom: 25px;
+  padding-left: 25px;
+  background-color: #ffffff;
+  outline: none;
+  color: #000000;
+  box-shadow: 0 0 7px 0 rgba($color: #000000, $alpha: .2);
+  -webkit-appearance: none;
 
-    &::placeholder {
-      color: #737272;
-    }
-
-    &.message-box {
-      height: 135px;
-    }
+  &::placeholder {
+    color: #737272;
   }
 
+  &.message-box {
+    height: 135px;
+  }
+}
+
+    input:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
   button {
     border: none;
     @include hero_btn($primary1, $white, 10px, 55px, 0);
