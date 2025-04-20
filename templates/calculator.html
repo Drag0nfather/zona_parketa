@@ -1,0 +1,172 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Калькулятор работ | Зона паркета</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .calculator-container {
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    #result {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #7C8262;
+      margin-top: 20px;
+      text-align: center;
+    }
+  .btn-calculate {
+    background-color: #7C8262;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .btn-calculate:hover {
+    background-color: #6b7155;
+  }
+  </style>
+</head>
+<body>
+  {% include "header.html" %}
+
+  <div class="container calculator-container">
+    <h1>Калькулятор стоимости паркетных работ</h1>
+
+    <div class="section">
+      <label>Площадь работ (м²): <input class="form-control" type="number" id="area" min="0" value="50"></label>
+    </div>
+
+    <div class="section">
+      <h2>Подготовка основания</h2>
+      <label><input type="checkbox" data-price="420"> Шлифовка цементной стяжки — 420 ₽/м²</label>
+      <label><input type="checkbox" data-price="150"> Грунтовка цементной стяжки — 150 ₽/м²</label>
+
+      <p><strong>Настил фанеры (выберите один):</strong></p>
+      <label><input type="radio" name="fanera" value="0" checked> Не настилаем фанеру</label>
+      <label><input type="radio" name="fanera" value="350"> Деревянное основание — 350 ₽/м²</label>
+      <label><input type="radio" name="fanera" value="400"> Бетон (на клей) — 400 ₽/м²</label>
+      <label><input type="radio" name="fanera" value="500"> Бетон (на клей и саморезы) — 500 ₽/м²</label>
+
+      <label><input type="checkbox" data-price="400"> Шлифовка фанеры — 400 ₽/м²</label>
+    </div>
+
+    <div class="section">
+      <h2>Укладка паркета (выберите один):</h2>
+      <label><input type="radio" name="ukladka" value="1800"> Английская/Венгерская ёлка (финишное) — 1800 ₽/м²</label>
+      <label><input type="radio" name="ukladka" value="1300"> Английская/Венгерская ёлка (не финишное) — 1300 ₽/м²</label>
+      <label><input type="radio" name="ukladka" value="2300"> Французская ёлка (финишное) — 2300 ₽/м²</label>
+      <label><input type="radio" name="ukladka" value="1700"> Французская ёлка (не финишное) — 1700 ₽/м²</label>
+      <label><input type="radio" name="ukladka" value="1000"> Паркетная доска (плавающий способ) — 1000 ₽/м²</label>
+      <label><input type="radio" name="ukladka" value="1200"> Паркетная доска (с приклеиванием) — 1200 ₽/м²</label>
+      <label><input type="radio" name="ukladka" value="1400"> Инженерная доска — 1400 ₽/м²</label>
+      <label><input type="radio" name="ukladka" value="1600"> Массивная доска (не финишное) — 1600 ₽/м²</label>
+      <label><input type="radio" name="ukladka" value="1800"> Массивная доска (финишное) — 1800 ₽/м²</label>
+      <label><input type="radio" name="ukladka" value="2000"> Массивная доска диагонально — 2000 ₽/м²</label>
+      <label><input type="radio" name="ukladka" value="2000"> Модульный паркет (не финишное) — 2000 ₽/м²</label>
+      <label><input type="radio" name="ukladka" value="2400"> Модульный паркет (финишное) — 2400 ₽/м²</label>
+      <label><input type="radio" name="ukladka" value="2000"> Штучный паркет (на фанеру) — 2000 ₽/м²</label>
+      <label><input type="radio" name="ukladka" value="2100"> Штучный паркет (на стяжку) — 2100 ₽/м²</label>
+      <label><input type="radio" name="ukladka" value="2000"> Штучный паркет диагональный — 2000 ₽/м²</label>
+    </div>
+
+    <div class="section">
+      <h2>Шлифовка и лакировка</h2>
+      <label><input type="checkbox" data-price="1500"> Шлифовка паркета — 1500 ₽/м²</label>
+      <label><input type="checkbox" data-price="390"> Лакировка паркета (3 слоя) — 390 ₽/м²</label>
+      <label><input type="checkbox" data-price="400"> Нанесение финишного масла — 400 ₽/м²</label>
+      <label><input type="checkbox" data-price="800"> Нанесение цветного масла — 800 ₽/м²</label>
+      <label><input type="checkbox" data-price="400"> Шпаклевка щелей — от 400 ₽/м²</label>
+      <label><input type="checkbox" data-price="1200"> Шлифовка деревянного пола — 1200 ₽/м²</label>
+    </div>
+
+    <div class="section">
+      <h2>Разборка покрытия</h2>
+      <label><input type="checkbox" data-price="200"> Снятие фанеры (на клею) — 200 ₽/м²</label>
+      <label><input type="checkbox" data-price="600"> Паркетная доска (приклеена) — 600 ₽/м²</label>
+      <label><input type="checkbox" data-price="400"> Паркетная доска (не приклеена) — 400 ₽/м²</label>
+      <label><input type="checkbox" data-price="200"> Снятие ламината — 200 ₽/м²</label>
+    </div>
+
+    <div class="section">
+      <h2>Дополнительные услуги</h2>
+      <label>Установка фриза — 1000 ₽/п.м: <input class="form-control" type="number" data-price="1000" class="pm"></label>
+      <label>Установка розетки — 4500 ₽/шт: <input class="form-control" type="number" data-price="4500" class="piece"></label>
+      <label>Монтаж плинтуса — 700 ₽/п.м: <input class="form-control" type="number" data-price="700" class="pm"></label>
+      <label>Установка пробкового компенсатора — 1000 ₽/п.м: <input class="form-control" type="number" data-price="1000" class="pm"></label>
+    </div>
+
+<button class="btn-calculate" onclick="calculate()">Рассчитать</button>
+    <div id="result">Итого: 0 ₽</div>
+  </div>
+
+  <script>
+    function calculate() {
+      const area = parseFloat(document.getElementById('area').value) || 0;
+      let total = 0;
+
+      document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+        const price = parseFloat(cb.dataset.price);
+        total += price * area;
+      });
+
+      const fanera = document.querySelector('input[name="fanera"]:checked');
+      if (fanera) {
+        total += parseFloat(fanera.value) * area;
+      }
+
+      const ukladka = document.querySelector('input[name="ukladka"]:checked');
+      if (ukladka) {
+        total += parseFloat(ukladka.value) * area;
+      }
+
+      document.querySelectorAll('.pm').forEach(input => {
+        const val = parseFloat(input.value);
+        if (!isNaN(val)) {
+          const price = parseFloat(input.dataset.price);
+          total += price * val;
+        }
+      });
+
+      document.querySelectorAll('.piece').forEach(input => {
+        const val = parseFloat(input.value);
+        if (!isNaN(val)) {
+          const price = parseFloat(input.dataset.price);
+          total += price * val;
+        }
+      });
+
+      document.getElementById('result').innerText = 'Итого: ' + total.toLocaleString('ru-RU') + ' ₽';
+    }
+  </script>
+</body>
+</html>

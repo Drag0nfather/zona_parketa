@@ -1,6 +1,6 @@
 from django.conf.urls.static import static
 from django.urls import path
-from .views import parquet_list, index, about, contact, service, equipment, photos
+from .views import parquet_list, index, about, contact, service, equipment, photos, calculator
 import settings
 
 urlpatterns = [
@@ -11,7 +11,8 @@ urlpatterns = [
     path('contact/', contact),
     path('service/', service),
     path('equipment/', equipment),
-    path('photos/', photos)
+    path('photos/', photos),
+    path('calculator/', calculator)
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -90,6 +90,10 @@ def equipment(request):
     return render(request, 'equipment.html')
 
 
+def calculator(request):
+    return render(request, 'calculator.html')
+
+
 def photos(request):
     photos = ParquetPhoto.objects.all()
     return render(request, 'photos.html', {'photos': photos})
