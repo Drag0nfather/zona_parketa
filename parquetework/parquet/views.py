@@ -1,14 +1,18 @@
+from copy import deepcopy
+
 from django.shortcuts import render, redirect
 import os
 import sys
-
+import json
 from telebot.apihelper import ApiTelegramException
 
+from utils.create_word_file import create_word_file
+from .forms.calculator_form import CalculatorForm
 from .forms.feedback_form import FeedBackForm
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
-from telegram_stuff.telegram import send_messsage_to_telegram_chat
+from telegram_stuff.telegram import send_messsage_to_telegram_chat, handle_senddoc
 from .models import ParquetWork, ParquetCategory, ParquetPhoto
 
 
@@ -91,9 +95,27 @@ def equipment(request):
 
 
 def calculator(request):
-    return render(request, 'calculator.html')
-
+    form = CalculatorForm()
+    return render(request, 'calculator.html', {'form': form})
 
 def photos(request):
     photos = ParquetPhoto.objects.all()
     return render(request, 'photos.html', {'photos': photos})
+
+
+def calculator_submit(request):
+    if request.method == 'POST':
+        form = CalculatorForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            phone = form.cleaned_data['phone_number']
+            selected_data = form.cleaned_data['selected_data']
+            file = create_word_file(name=name, phone=phone, data=json.loads(selected_data))
+            second_file = deepcopy(file)
+            handle_senddoc(chat_id=278583648, name=name, phone=phone, file=file)
+            handle_senddoc(chat_id=5414253735, name=name, phone=phone, file=second_file)  # Ромин
+
+    else:
+        form = CalculatorForm()
+
+    return render(request, 'calculator.html', {'form': form})

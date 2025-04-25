@@ -57,7 +57,7 @@
   }
   </style>
 </head>
-<body>
+<section>
   {% include "header.html" %}
 
   <div class="container calculator-container">
@@ -67,12 +67,14 @@
       <label>Площадь работ (м²): <input class="form-control" type="number" id="area" min="0" value="50"></label>
     </div>
 
-    <div class="section">
+    <div class="section" data-category="Подготовка основания">
       <h2>Подготовка основания</h2>
       <label><input type="checkbox" data-price="420"> Шлифовка цементной стяжки — 420 ₽/м²</label>
       <label><input type="checkbox" data-price="150"> Грунтовка цементной стяжки — 150 ₽/м²</label>
+    </div>
 
-      <p><strong>Настил фанеры (выберите один):</strong></p>
+    <div class="section" data-category="Настил фанеры">
+      <h2>Настил фанеры (выберите один):</h2>
       <label><input type="radio" name="fanera" value="0" checked> Не настилаем фанеру</label>
       <label><input type="radio" name="fanera" value="350"> Деревянное основание — 350 ₽/м²</label>
       <label><input type="radio" name="fanera" value="400"> Бетон (на клей) — 400 ₽/м²</label>
@@ -81,7 +83,7 @@
       <label><input type="checkbox" data-price="400"> Шлифовка фанеры — 400 ₽/м²</label>
     </div>
 
-    <div class="section">
+    <div class="section" data-category="Укладка паркета">
       <h2>Укладка паркета (выберите один):</h2>
       <label><input type="radio" name="ukladka" value="1800"> Английская/Венгерская ёлка (финишное) — 1800 ₽/м²</label>
       <label><input type="radio" name="ukladka" value="1300"> Английская/Венгерская ёлка (не финишное) — 1300 ₽/м²</label>
@@ -100,17 +102,17 @@
       <label><input type="radio" name="ukladka" value="2000"> Штучный паркет диагональный — 2000 ₽/м²</label>
     </div>
 
-    <div class="section">
+    <div class="section" data-category="Шлифовка и лакировка">
       <h2>Шлифовка и лакировка</h2>
       <label><input type="checkbox" data-price="1500"> Шлифовка паркета — 1500 ₽/м²</label>
       <label><input type="checkbox" data-price="390"> Лакировка паркета (3 слоя) — 390 ₽/м²</label>
       <label><input type="checkbox" data-price="400"> Нанесение финишного масла — 400 ₽/м²</label>
       <label><input type="checkbox" data-price="800"> Нанесение цветного масла — 800 ₽/м²</label>
-      <label><input type="checkbox" data-price="400"> Шпаклевка щелей — от 400 ₽/м²</label>
+      <label><input type="checkbox" data-price="400"> Шпаклевка щелей — 400 ₽/м²</label>
       <label><input type="checkbox" data-price="1200"> Шлифовка деревянного пола — 1200 ₽/м²</label>
     </div>
 
-    <div class="section">
+    <div class="section" data-category="Разборка покрытия">
       <h2>Разборка покрытия</h2>
       <label><input type="checkbox" data-price="200"> Снятие фанеры (на клею) — 200 ₽/м²</label>
       <label><input type="checkbox" data-price="600"> Паркетная доска (приклеена) — 600 ₽/м²</label>
@@ -118,7 +120,7 @@
       <label><input type="checkbox" data-price="200"> Снятие ламината — 200 ₽/м²</label>
     </div>
 
-    <div class="section">
+    <div class="section" data-category="Дополнительные услуги">
       <h2>Дополнительные услуги</h2>
       <label>Установка фриза — 1000 ₽/п.м: <input class="form-control" type="number" data-price="1000" class="pm"></label>
       <label>Установка розетки — 4500 ₽/шт: <input class="form-control" type="number" data-price="4500" class="piece"></label>
@@ -126,50 +128,139 @@
       <label>Установка пробкового компенсатора — 1000 ₽/п.м: <input class="form-control" type="number" data-price="1000" class="pm"></label>
     </div>
 
-<button class="btn-calculate" onclick="calculate()">Рассчитать</button>
-    <div id="result">Итого: 0 ₽</div>
-  </div>
+  <button class="btn-calculate" onclick="showForm()">Рассчитать</button>
+  <div id="result">Итого: 0 ₽</div>
+    <section class="contact_section" style="background-color: white; padding: 40px 0;">
+      <div id="calculator-form" style="max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <h2 style="text-align: center; margin-bottom: 20px;">Создать смету</h2>
+        <div style="text-align: center; margin-bottom: 30px;">
+          <p style="font-size: 16px; color: #555;">Можете оставить свои данные, и мы вышлем вам смету по указанным контактам</p>
+        </div>
+        <form method="POST" action="{% url 'calculator_submit' %}" style="display: flex; flex-direction: column; gap: 20px;">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="hidden" id="selected_data" name="selected_data" value="" />
+          <button type="submit" style="padding: 12px; background-color: #7C8262; color: white; font-size: 16px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s;">
+            Отправить
+          </button>
+        </form>
+      </div>
+    </section>
 
-  <script>
-    function calculate() {
-      const area = parseFloat(document.getElementById('area').value) || 0;
-      let total = 0;
+</div>
+</section>
+<script>
+  function calculate() {
+    const area = parseFloat(document.getElementById('area').value) || 0;
+    let total = 0;
 
-      document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
-        const price = parseFloat(cb.dataset.price);
+    // Добавляем цену для выбранных чекбоксов
+    document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+      const price = parseFloat(cb.dataset.price);
+      if (!isNaN(price)) {
         total += price * area;
-      });
-
-      const fanera = document.querySelector('input[name="fanera"]:checked');
-      if (fanera) {
-        total += parseFloat(fanera.value) * area;
       }
+    });
 
-      const ukladka = document.querySelector('input[name="ukladka"]:checked');
-      if (ukladka) {
-        total += parseFloat(ukladka.value) * area;
+    // Добавляем цену для выбранного типа фанеры
+    const fanera = document.querySelector('input[name="fanera"]:checked');
+    if (fanera) {
+      const faneraPrice = parseFloat(fanera.value);
+      if (!isNaN(faneraPrice)) {
+        total += faneraPrice * area;
       }
-
-      document.querySelectorAll('.pm').forEach(input => {
-        const val = parseFloat(input.value);
-        if (!isNaN(val)) {
-          const price = parseFloat(input.dataset.price);
-          total += price * val;
-        }
-      });
-
-      document.querySelectorAll('.piece').forEach(input => {
-        const val = parseFloat(input.value);
-        if (!isNaN(val)) {
-          const price = parseFloat(input.dataset.price);
-          total += price * val;
-        }
-      });
-
-      document.getElementById('result').innerText = 'Итого: ' + total.toLocaleString('ru-RU') + ' ₽';
     }
-  </script>
+
+    // Добавляем цену для выбранной укладки
+    const ukladka = document.querySelector('input[name="ukladka"]:checked');
+    if (ukladka) {
+      const ukladkaPrice = parseFloat(ukladka.value);
+      if (!isNaN(ukladkaPrice)) {
+        total += ukladkaPrice * area;
+      }
+    }
+
+    // Добавляем цену для дополнительных услуг
+    document.querySelectorAll('input[type="number"]').forEach(input => {
+      const val = parseFloat(input.value);
+      if (!isNaN(val) && val > 0) {
+        const price = parseFloat(input.dataset.price);
+        if (!isNaN(price)) {
+          total += price * val;
+        }
+      }
+    });
+
+    // Обновляем итоговую сумму
+    if (!isNaN(total) && total > 0) {
+      document.getElementById('result').innerText = 'Итого: ' + total.toLocaleString('ru-RU') + ' ₽';
+    } else {
+      document.getElementById('result').innerText = 'Итого: 0 ₽';
+    }
+  }
+
+  function showForm() {
+    const selectedData = {
+      area: document.getElementById('area').value,
+      categories: {}
+    };
+
+    // Проходим по всем секциям
+    document.querySelectorAll('.section[data-category]').forEach(section => {
+      const categoryName = section.dataset.category;
+      selectedData.categories[categoryName] = [];
+
+      // Собираем выбранные чекбоксы в этой секции
+      section.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+        selectedData.categories[categoryName].push({
+          name: cb.parentElement.textContent.trim(),
+          price: cb.dataset.price,
+          type: 'checkbox'
+        });
+      });
+
+      // Собираем выбранные радиокнопки в этой секции
+      section.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+        if (radio.value !== '0') { // Пропускаем опцию "Не настилаем фанеру"
+          selectedData.categories[categoryName].push({
+            name: radio.parentElement.textContent.trim(),
+            price: radio.value,
+            type: 'radio'
+          });
+        }
+      });
+
+      // Собираем значения числовых полей в этой секции
+      section.querySelectorAll('input[type="number"]').forEach(input => {
+        const val = parseFloat(input.value);
+        if (!isNaN(val) && val > 0) {
+          selectedData.categories[categoryName].push({
+            name: input.parentElement.textContent.trim(),
+            price: input.dataset.price,
+            value: val,
+            type: 'number'
+          });
+        }
+      });
+
+      // Удаляем категорию, если в ней нет выбранных опций
+      if (selectedData.categories[categoryName].length === 0) {
+        delete selectedData.categories[categoryName];
+      }
+    });
+
+    // Сохраняем данные в скрытое поле
+    document.getElementById('selected_data').value = JSON.stringify(selectedData);
+
+    // Показываем форму
+    document.getElementById('calculator-form').style.display = 'block';
+
+    // Вызываем расчет
+    calculate();
+  }
+</script>
   {% include 'footer.html' %}
+  {% include 'scripts.html' %}
 
 </body>
 </html>
